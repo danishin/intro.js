@@ -1088,8 +1088,13 @@
       }
     }
 
-    if (typeof (this._introAfterChangeCallback) !== 'undefined') {
-      this._introAfterChangeCallback.call(this, targetElement.element);
+    // FIX z-index issue (https://github.com/usablica/intro.js/issues/109) using (https://github.com/heelhook/chardin.js/issues/26#issuecomment-27967812)
+    // if (typeof (this._introAfterChangeCallback) !== 'undefined') {
+    //   this._introAfterChangeCallback.call(this, targetElement.element);
+    // }
+    
+    if (typeof (this._introChangeCallback) !== 'undefined') {
+      this._introChangeCallback.call(this, targetElement.element);
     }
   }
 
